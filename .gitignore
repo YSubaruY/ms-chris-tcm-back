@@ -139,7 +139,11 @@ dist
 
 # IDE
 .idea/
-.vscode/
+# Keep team VS Code settings, ignore personal overrides
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/launch.json
 *.swp
 *.swo
 *.swn
