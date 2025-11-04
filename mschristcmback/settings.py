@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'django_filters',
     'corsheaders',
-    'drf_yasg'
+    'drf_yasg',
+    'roles',
 ]
 
 MIDDLEWARE = [
@@ -79,25 +80,18 @@ WSGI_APPLICATION = 'mschristcmback.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+   'default': {
+       'ENGINE': 'django.db.backends.postgresql',
+       'NAME': 'postgres',
+       'USER': 'postgres',
+       'PASSWORD': 'zuth',
+       'HOST': 'localhost',
+       'PORT': os.getenv('DB_PORT'),
+        'OPTIONS': {
+           'options': f'-c search_path=tcmdbcrhs',
+       },
     }
 }
-
-#DATABASES = {
- #   'default': {
-  #      'ENGINE': 'django.db.backends.postgresql',
-   #     'NAME': os.getenv('DB_NAME'),
-    #    'USER': os.getenv('DB_USER'),
-     #   'PASSWORD': os.getenv('DB_PASSWORD'),
-      #  'HOST': '127.0.0.1',
-       # 'PORT': os.getenv('DB_PORT'),
-        #'OPTIONS': {
-         #   'options': f'-c search_path={os.getenv("DB_SCHEMA")},public',
-       # },
-    #}
-#}
 
 
 # Password validation
