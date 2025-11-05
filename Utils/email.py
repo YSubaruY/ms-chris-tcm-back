@@ -8,7 +8,7 @@ load_dotenv()
 
 class EmailService:
     @staticmethod
-    def send_credential_email(email, username, password, first_name):
+    def send_credential_email(email, password, first_name):
         host = os.getenv('SMTP_HOST')
         port = int(os.getenv('SMTP_PORT'))
         smtp_user = os.getenv('SMTP_USER')
@@ -21,7 +21,7 @@ class EmailService:
 
             Aquí están tus credenciales de acceso:
 
-            Usuario: {username}
+            Usuario: {email}
             Contraseña: {password}
 
             Por favor, no compartas esta información con nadie.
